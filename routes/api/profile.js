@@ -15,15 +15,15 @@ const Profile = require('../../models/Profile');
 // Load User Profile
 const User = require('../../models/User');
 
-// @Router   GET api/profil/test
-// @desc     Tests post route
-// @access    Public
+// @Router  GET api/profil/test
+// @desc    Tests post route
+// @access  Public
 router.get('/test', (req, res) => res.json({msg: "Profile Works"}));
 
 
-// @Router   GET api/profil/ 
-// @desc     Get curreent users profile
-// @access    Private
+// @Router  GET api/profil/ 
+// @desc    Get curreent users profile
+// @access  Private
 router.get('/', passport.authenticate('jwt', { session: false }),
     (req, res) =>{
         const errors = {};
@@ -41,9 +41,9 @@ router.get('/', passport.authenticate('jwt', { session: false }),
 });
 
 
-// @Router   GET api/profil/handle/:handle
-// @desc     Get profile by handle
-// @access    Public
+// @Router  GET api/profil/handle/:handle
+// @desc    Get profile by handle
+// @access  Public
 router.get('/handle/:handle',(req,res) =>{
     const errors = {};
     Profile.findOne({ handle: req.params.handle })
@@ -59,9 +59,9 @@ router.get('/handle/:handle',(req,res) =>{
 });
 
 
-// @Router   GET api/profil/user/:user_id
-// @desc     Get profile by userID
-// @access    Public
+// @Router  GET api/profil/user/:user_id
+// @desc    Get profile by userID
+// @access  Public
 router.get('/user/:user_id',(req,res) =>{
     const errors = {};
     Profile.findOne({ user: req.params.user_id })
@@ -77,9 +77,9 @@ router.get('/user/:user_id',(req,res) =>{
 });
 
 
-// @Router   GET api/profil/all
-// @desc     Get all profil
-// @access    Public
+// @Router  GET api/profil/all
+// @desc    Get all profil
+// @access  Public
 router.get('/all',(req,res) =>{
     const errors = {};
     Profile.find()
